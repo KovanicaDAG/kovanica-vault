@@ -29,6 +29,19 @@ The `kovanica-protocol/` folder mirrors the authoritative repo docs at
   - Plans: [[vault-time-lock]] · [[htlc-atomic-swap]] · [[stealth-script-v2-rfc-003]] · [[mobile-light-node]] · [[android-light-node-app]]
   - Release / ops: [[RELEASE]] · [[LEGIT-BOARD]] · [[soak-snapshot-2026-09-03]] · [[explorer]] (api docs)
 
+## kovanica-agent snapshot
+
+The `kovanica-agent/` folder mirrors the authoritative **Kovi** agent repo at
+`/home/antonio/protokol/kovanica-agent` (GitHub `KovanicaDAG/kovanica-agent`,
+checked 2026-09-09, `main`).
+
+- [[KOVI]] — vault-authored overview (architecture, stack, status)
+- `kovanica-agent/README.md` — build/run, architecture
+- `kovanica-agent/SYSTEM_PROMPT.md` — agent system prompt
+- `kovanica-agent/docker-compose.yml` / `docker-compose.cpu.yml` — stack wiring
+- `kovanica-agent/agent/` — FastAPI + LangGraph + RAG + apply-to-PR source
+- `kovanica-agent/sandbox/` — cargo sandbox, socket-owning runner, build helper
+
 ## Old vault archive
 
 The previous vault snapshot (pre-merge four-repo layout: `kovanica-cli/`, `kovanica-ledger/`,
@@ -38,4 +51,4 @@ git clones are stale and contradicted by the merged repo. The checkout remains a
 
 ---
 
-*Updated: 2026-09-08.*
+*Updated: 2026-09-09 (added kovanica-agent / Kovi snapshot).*

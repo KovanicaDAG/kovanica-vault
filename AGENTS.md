@@ -18,6 +18,7 @@ vault-authored notes; everything else is copied from the repo.
 |-------|---------------------|
 | Protocol/code design, build, test | `/home/antonio/KovanicaDAG/kovanica-protocol` — read its `AGENTS.md` first |
 | Deployed testnet ops | `/home/antonio/KovanicaDAG/kovanica-protocol/TESTNET.md`, `OPERATIONS.md` (verify against the repo) |
+| Agent (Kovi) source | `/home/antonio/protokol/kovanica-agent` (GitHub `KovanicaDAG/kovanica-agent`) |
 | Project overview as presented in Obsidian | `myObsidianVaultDAG.md` |
 | Roadmap / status tracking | `ROADMAP.md` (keep in sync with repo `AGENTS.md` roadmap) |
 
@@ -25,11 +26,13 @@ vault-authored notes; everything else is copied from the repo.
 
 1. **Sync documentation** from `kovanica-protocol` → `kovanica-protocol/` snapshot
    (README, AGENTS, TESTNET, OPERATIONS, TODO, docs tree)
-2. **Update the project overview** (`myObsidianVaultDAG.md`) when the merged repo
+2. **Sync documentation** from `kovanica-agent` → `kovanica-agent/` snapshot
+   (README, SYSTEM_PROMPT, docker-compose files, agent/ + sandbox/ source trees)
+3. **Update the project overview** (`myObsidianVaultDAG.md`) when the merged repo
    structure or status changes
-3. **Maintain `CODE_INDEX.md`** with current `file://` links to source files
-4. **Update `ROADMAP.md`** and other tracking documents when stages complete
-5. **Push changes** to the remote repository following the sync recipe
+4. **Maintain `CODE_INDEX.md`** with current `file://` links to source files
+5. **Update `ROADMAP.md`** and other tracking documents when stages complete
+6. **Push changes** to the remote repository following the sync recipe
 
 ## Remote
 
@@ -50,6 +53,9 @@ The vault is a git repo on branch `main`. Remote is GitHub
 - The snapshot under `kovanica-protocol/` describes the **merged repo** layout;
   old per-repo snapshots (`kovanica-cli/ledger/node/web`) from the pre-merge era
   were **not** carried into this vault (stale, contradicted by the merged repo).
+- The snapshot under `kovanica-agent/` describes the **Kovi** agent repo
+  (`KovanicaDAG/kovanica-agent`), a standalone repo since 2026-09-09 — do not
+  confuse it with the `kovanica-agent/` path inside kovanica-protocol history.
 
 ## Sync Recipe
 

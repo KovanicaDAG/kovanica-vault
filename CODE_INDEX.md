@@ -2,9 +2,10 @@
 
 Maps documentation topics to authoritative source files in
 `/home/antonio/KovanicaDAG/kovanica-protocol` (the merged repo, branch
-`main`). Links are `file://` URIs that open the file locally.
+`main`) and `/home/antonio/protokol/kovanica-agent` (the **Kovi** agent repo).
+Links are `file://` URIs that open the file locally.
 
-*Checked 2026-09-08.*
+*Checked 2026-09-08 (protocol), 2026-09-09 (agent).*
 
 ## Consensus core — `crates/kovanica-dag`
 
@@ -89,3 +90,24 @@ Maps documentation topics to authoritative source files in
 | Testnet ops | [TESTNET.md](file:///home/antonio/KovanicaDAG/kovanica-protocol/TESTNET.md) · [OPERATIONS.md](file:///home/antonio/KovanicaDAG/kovanica-protocol/OPERATIONS.md) · [docs/soak-snapshot-2026-09-03.md](file:///home/antonio/KovanicaDAG/kovanica-protocol/docs/soak-snapshot-2026-09-03.md) |
 | Explorer API docs | [docs/api/explorer.md](file:///home/antonio/KovanicaDAG/kovanica-protocol/docs/api/explorer.md) |
 | Tokenomics / overview | [docs/TOKENOMICS.md](file:///home/antonio/KovanicaDAG/kovanica-protocol/docs/TOKENOMICS.md) · [docs/WHAT-IS-KOVANICA.md](file:///home/antonio/KovanicaDAG/kovanica-protocol/docs/WHAT-IS-KOVANICA.md) |
+
+## Kovi agent — `kovanica-agent` (standalone repo)
+
+| Topic | File |
+|-------|------|
+| Agent overview (vault note) | [KOVI.md](file:///home/antonio/protokol/kovanica-vault/kovanica-agent/KOVI.md) |
+| Build/run, architecture | [README.md](file:///home/antonio/protokol/kovanica-agent/README.md) |
+| System prompt | [SYSTEM_PROMPT.md](file:///home/antonio/protokol/kovanica-agent/SYSTEM_PROMPT.md) |
+| Stack wiring (GPU / CPU) | [docker-compose.yml](file:///home/antonio/protokol/kovanica-agent/docker-compose.yml) · [docker-compose.cpu.yml](file:///home/antonio/protokol/kovanica-agent/docker-compose.cpu.yml) |
+| FastAPI routes (/chat, /confirm, /healthz) | [agent/main.py](file:///home/antonio/protokol/kovanica-agent/agent/main.py) |
+| LangGraph flow + tools | [agent/graph.py](file:///home/antonio/protokol/kovanica-agent/agent/graph.py) |
+| RAG search | [agent/rag.py](file:///home/antonio/protokol/kovanica-agent/agent/rag.py) |
+| Rust-aware chunking + indexer CLI | [agent/indexer.py](file:///home/antonio/protokol/kovanica-agent/agent/indexer.py) |
+| Embeddings (bge-small-en-v1.5) | [agent/embed.py](file:///home/antonio/protokol/kovanica-agent/agent/embed.py) |
+| JWT auth (JWKS / dev-token) | [agent/auth.py](file:///home/antonio/protokol/kovanica-agent/agent/auth.py) |
+| Apply → draft PR (fail-closed) | [agent/apply.py](file:///home/antonio/protokol/kovanica-agent/agent/apply.py) · [agent/patchstore.py](file:///home/antonio/protokol/kovanica-agent/agent/patchstore.py) |
+| Persistent sessions (SQLite) | [agent/checkpoint.py](file:///home/antonio/protokol/kovanica-agent/agent/checkpoint.py) |
+| Sandbox delegation client | [agent/sandbox_client.py](file:///home/antonio/protokol/kovanica-agent/agent/sandbox_client.py) |
+| Cargo sandbox image / entrypoint | [sandbox/Dockerfile](file:///home/antonio/protokol/kovanica-agent/sandbox/Dockerfile) · [sandbox/entrypoint.sh](file:///home/antonio/protokol/kovanica-agent/sandbox/entrypoint.sh) |
+| Socket-owning runner sidecar | [sandbox/runner/server.py](file:///home/antonio/protokol/kovanica-agent/sandbox/runner/server.py) |
+| Standalone build helper | [sandbox/build-image.sh](file:///home/antonio/protokol/kovanica-agent/sandbox/build-image.sh) |

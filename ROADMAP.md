@@ -66,6 +66,21 @@ No consensus changes; make the testnet trustworthy to operate.
    - Tune: `k`, finality depth, payload pruning depth, difficulty window
 5. ✅ **Wallet & explorer polish** — hardware wallet (Ledger/Trezor), BIP39/BIP44, fee estimation, DAG viz
 
+## Kovi — engineering agent (standalone repo, `KovanicaDAG/kovanica-agent`)
+
+Shipped 2026-09-09 on the VPS (CPU path). Snapshot: `kovanica-agent/`, overview [[KOVI]].
+
+- [x] FastAPI `/chat` + `/confirm`, LangGraph + SQLite checkpoints
+- [x] RAG: Qdrant `kovanica_codebase` (251 chunks of the protocol repo),
+      fastembed `BAAI/bge-small-en-v1.5`, Rust-aware chunking
+- [x] Sandboxed `cargo check/test/clippy/build` via socket-owning
+      `sandbox-runner` sidecar (network-disabled ephemeral containers)
+- [x] CPU compose path (Ollama `qwen2.5-coder:3b`) + GPU path (vLLM Qwen-32B-Coder)
+- [x] End-to-end `/chat` verified on the VPS
+- [ ] gVisor (`runsc`) on the host; harden sandbox-runner (socket proxy, sidecar auth)
+- [ ] Real auth (`AUTH_JWKS_URL`) before non-localhost exposure
+- [ ] Arm apply→PR path (`AGENT_GIT_APPLY_ENABLED=1` + repo auth); auto-index webhook
+
 ## Upgrade phases (cross-repo plan)
 
 | Phase | Status |
@@ -80,4 +95,4 @@ No consensus changes; make the testnet trustworthy to operate.
 
 ---
 
-*Last checked against `kovanica-protocol/AGENTS.md`: 2026-09-08.*
+*Last checked against `kovanica-protocol/AGENTS.md`: 2026-09-08. Kovi agent snapshot added 2026-09-09.*

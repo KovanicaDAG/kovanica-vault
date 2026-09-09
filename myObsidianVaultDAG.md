@@ -35,6 +35,23 @@ kovanica-protocol/
 └── AGENTS.md                # Source of truth for conventions + roadmap (snapshot in kovanica-protocol/)
 ```
 
+## Kovi — the engineering agent
+
+**[Kovi, Product of Kovanica](https://github.com/KovanicaDAG/kovanica-agent)** is a
+RAG-powered engineering assistant for this codebase (snapshot in
+`kovanica-agent/`, vault overview [[KOVI]]):
+
+- `/chat` + `/confirm` FastAPI, LangGraph + SQLite, Qdrant/fastembed RAG
+  (Rust-aware chunking, `BAAI/bge-small-en-v1.5`)
+- Sandboxed `cargo check/test/clippy/build` in an ephemeral network-disabled
+  container via a socket-owning `sandbox-runner` sidecar
+- Human-gated **apply → draft PR** flow (throwaway worktree off `origin/main`,
+  `gh`; fail-closed `dry_run` by default)
+- GPU (vLLM Qwen-32B-Coder) and CPU (Ollama `qwen2.5-coder:3b`) compose paths
+
+Deployed on the VPS (CPU path) — live `/chat` verified; RAG index of the
+protocol repo built (251 chunks); model `qwen2.5-coder:3b` serving.
+
 ## Core Domain Concepts
 
 | Term | Meaning |
@@ -146,9 +163,9 @@ cargo run -p kovanica-node   # then type: help
 
 - **Testnet seed**: `seed.kovanica.online:9000` (seed2/seed3 also resolve via DNS seeds)
 - **Explorer**: `explorer.kovanica.online`
-- **GitHub**: https://github.com/KovanicaDAG/kovanica-protocol
+- **GitHub**: https://github.com/KovanicaDAG/kovanica-protocol · [Kovi agent](https://github.com/KovanicaDAG/kovanica-agent)
 - **Vault navigation**: [[NAVIGATION]] · [[ROADMAP]] · [[CODE_INDEX]]
 
 ---
 
-*Updated: 2026-09-08 — kovanica-protocol merged repo, RFC-005 shipped, vault relocated to kovanica-vault.*
+*Updated: 2026-09-09 — kovanica-protocol merged repo, RFC-005 shipped, vault relocated to kovanica-vault, Kovi agent snapshot added.*
